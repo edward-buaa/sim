@@ -11,6 +11,7 @@
 */
 
 #include <string>
+#include <boost/property_tree/ptree.hpp>
 
 namespace solo { namespace config {
 
@@ -20,10 +21,11 @@ public:
 	explicit CConfig(const std::string);
 
 	///读取配置文件
-	void loadConfig();
+	std::string loadConfig();
 
 private:
 	std::string m_fileName;
+	boost::property_tree::iptree m_ptree;	//使用 iptree，忽略大小写
 };
 
 } }

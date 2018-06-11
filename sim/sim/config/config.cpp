@@ -1,11 +1,11 @@
 
 #include "config.h"
-#include <boost/regex.h>
-#include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 #include <boost/property_tree/info_parser.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <boost/regex.h>
+//#include <boost/optional.hpp>
 
 solo::config::CConfig::CConfig(const std::string)
 {
@@ -13,12 +13,13 @@ solo::config::CConfig::CConfig(const std::string)
 }
 
 ///读取配置文件
-void solo::config::CConfig::loadConfig()
+std::string solo::config::CConfig::loadConfig()
 {
 	using boost::property_tree::ini_parser::ini_parser_error;
 	using boost::property_tree::xml_parser::xml_parser_error;
 	using boost::property_tree::info_parser::info_parser_error;
 	using boost::property_tree::json_parser::json_parser_error;
+	using namespace boost::property_tree;
 
 	std::string expr[] =
 	{
@@ -50,15 +51,69 @@ void solo::config::CConfig::loadConfig()
 	//读取文件
 	switch (type)
 	{
-	case 0:
+	case 0:	//xml
+		try
+		{
+			xml_parser::read_xml(m_fileName, m_ptree);
+		}
+		catch (xml_parser_error& e)
+		{
+			std::stringstream s;
+			s << e.message() << " ";
+			s << e.line() << " in file [";
+			s << e.filename() ;
+			s << "]";
+			return s.str();
+		}
 		break;
-	case 1:
+	case 1:	//ini
+		try
+		{
+			ini_parser::read_ini(m_fileName, m_ptree);
+		}
+		catch (ini_parser_error& e)
+		{
+			std::stringstream s;
+			s << e.message() << " ";
+			s << e.line() << " in file [";
+			s << e.filename();
+			s << "]";
+			return s.str();
+		}
 		break;
-	case 2:
+	case 2:		//info
+		try
+		{
+			info_parser::read_info(m_fileName, m_ptree);
+		}
+		catch (ini_parser_error& e)
+		{
+			std::stringstream s;
+			s << e.message() << " ";
+			s << e.line() << " in file [";
+			s << e.filename();
+			s << "]";
+			return s.str();
+		}
 		break;
 	case 3:
+		try
+		{
+			json_parser::read_json(m_fileName, m_ptree);
+		}
+		catch (ini_parser_error& e)
+		{
+			std::stringstream s;
+			s << e.message() << " ";
+			s << e.line() << " in file [";
+			s << e.filename();
+			s << "]";
+			return s.str();
+		}
 		break;
 	default:
-		break;
+		return std::string("Can't support file type! Only [xml ini info json]");
 	}
+
+	return std::string("");
 }
