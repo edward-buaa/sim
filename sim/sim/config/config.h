@@ -21,7 +21,7 @@ public:
 	explicit CConfig(const std::string);
 
 	///¶ÁÈ¡ÅäÖÃÎÄ¼ş
-	std::string loadConfig();
+	void loadConfig();
 
 private:
 	std::string m_fileName;

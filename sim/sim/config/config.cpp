@@ -13,7 +13,7 @@ solo::config::CConfig::CConfig(const std::string)
 }
 
 ///∂¡»°≈‰÷√Œƒº˛
-std::string solo::config::CConfig::loadConfig()
+void solo::config::CConfig::loadConfig()
 {
 	using boost::property_tree::ini_parser::ini_parser_error;
 	using boost::property_tree::xml_parser::xml_parser_error;
@@ -63,7 +63,7 @@ std::string solo::config::CConfig::loadConfig()
 			s << e.line() << " in file [";
 			s << e.filename() ;
 			s << "]";
-			return s.str();
+			throw std::runtime_error(s.str().c_str());
 		}
 		break;
 	case 1:	//ini
@@ -78,7 +78,7 @@ std::string solo::config::CConfig::loadConfig()
 			s << e.line() << " in file [";
 			s << e.filename();
 			s << "]";
-			return s.str();
+			throw std::runtime_error(s.str().c_str());
 		}
 		break;
 	case 2:		//info
@@ -86,14 +86,14 @@ std::string solo::config::CConfig::loadConfig()
 		{
 			info_parser::read_info(m_fileName, m_ptree);
 		}
-		catch (ini_parser_error& e)
+		catch (info_parser_error& e)
 		{
 			std::stringstream s;
 			s << e.message() << " ";
 			s << e.line() << " in file [";
 			s << e.filename();
 			s << "]";
-			return s.str();
+			throw std::runtime_error(s.str().c_str());
 		}
 		break;
 	case 3:
@@ -101,19 +101,17 @@ std::string solo::config::CConfig::loadConfig()
 		{
 			json_parser::read_json(m_fileName, m_ptree);
 		}
-		catch (ini_parser_error& e)
+		catch (json_parser_error& e)
 		{
 			std::stringstream s;
 			s << e.message() << " ";
 			s << e.line() << " in file [";
 			s << e.filename();
 			s << "]";
-			return s.str();
+			throw std::runtime_error(s.str().c_str());
 		}
 		break;
 	default:
-		return std::string("Can't support file type! Only [xml ini info json]");
+		throw std::runtime_error("Can't support file type! Only [xml ini info json]");
 	}
-
-	return std::string("");
 }
