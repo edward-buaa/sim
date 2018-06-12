@@ -131,9 +131,11 @@
   <ItemGroup>
     <ClCompile Include="config\config.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="network\ioContextPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h" />
+    <ClInclude Include="network\ioContextPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

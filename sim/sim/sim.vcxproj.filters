@@ -4,16 +4,25 @@
     <Filter Include="config">
       <UniqueIdentifier>{d7fb230f-cefd-47ba-97cd-ff65fd2906be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{40c6f777-dadb-49fb-a4e9-fb6d36792fa7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config\config.cpp">
       <Filter>config</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="network\ioContextPool.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h">
       <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="network\ioContextPool.h">
+      <Filter>network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

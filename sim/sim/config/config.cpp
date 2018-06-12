@@ -7,7 +7,13 @@
 #include <boost/regex.h>
 //#include <boost/optional.hpp>
 
-solo::config::CConfig::CConfig(const std::string)
+solo::config::CConfig::CConfig(const std::string fileName)
+	: m_fileName{fileName}
+{
+
+}
+
+solo::config::CConfig::~CConfig()
 {
 
 }
