@@ -8,12 +8,13 @@
 */
 
 #include <memory>
+#include <thread>
 #include <boost/asio.hpp>
 
 class ioContextPool final
 {
 public:
-	explicit ioContextPool();
+	explicit ioContextPool(size_t poolSize = 0);
 	ioContextPool(ioContextPool&) = delete;
 	ioContextPool(ioContextPool&&) = delete;
 	ioContextPool& operator=(ioContextPool&) = delete;
@@ -24,17 +25,20 @@ public:
 	void stop();
 
 private:
-	void run(bool block);
+	void run();
 	void wait();
 
 private:
-	//typedef boost::shared_ptr<boost::asio::io_service> io_srv_ptr;
-	//typedef boost::shared_ptr<boost::asio::io_service::work> hold_ptr;
-	//typedef boost::shared_ptr<boost::thread> thread_ptr;
-
 	using io_contxt_ptr = std::shared_ptr<boost::asio::io_context>;
-	//using hold_ptr = std::shared_ptr<boost::asio::io_context::work>;
+	using work_t = boost::asio::executor_work_guard<boost::asio::io_context::executor_type>;
+	using work_ptr = std::shared_ptr<work_t>;
+	using thread_ptr = std::shared_ptr<std::thread>;
 
+	std::vector<io_contxt_ptr> io_srvs_;
+	std::vector<work_ptr> works_;
+	std::vector<thread_ptr> threads_;
+	std::mutex mutex_;
+	std::size_t next_idx_ = 0;	//next io_context used for a connection
 };
 
 #endif

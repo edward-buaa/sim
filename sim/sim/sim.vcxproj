@@ -132,10 +132,12 @@
     <ClCompile Include="config\config.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="network\ioContextPool.cpp" />
+    <ClCompile Include="tkernel\kernelEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h" />
     <ClInclude Include="network\ioContextPool.h" />
+    <ClInclude Include="tkernel\kernelEngine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

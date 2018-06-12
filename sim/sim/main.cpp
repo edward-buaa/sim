@@ -4,6 +4,7 @@
 #include <boost/assign.hpp>
 #include <boost/optional.hpp>
 #include "config/config.h"
+#include "network/ioContextPool.h"
 
 const char* INI_FILE_NAME = "matchkernel.ini";
 const char* XML_FILE_NAME = "matchkernel.xml";
@@ -45,7 +46,7 @@ int main()
 	}
 
 	//--------------------Æô¶¯ÏµÍ³-------------------
-
+	ioContextPool engine_pool(1);
 
 	return 0;
 }

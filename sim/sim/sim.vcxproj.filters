@@ -7,6 +7,9 @@
     <Filter Include="network">
       <UniqueIdentifier>{40c6f777-dadb-49fb-a4e9-fb6d36792fa7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tkernel">
+      <UniqueIdentifier>{626976ee-75dc-4e77-bf06-ff2b80a4e4c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config\config.cpp">
@@ -16,6 +19,9 @@
     <ClCompile Include="network\ioContextPool.cpp">
       <Filter>network</Filter>
     </ClCompile>
+    <ClCompile Include="tkernel\kernelEngine.cpp">
+      <Filter>tkernel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h">
@@ -23,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="network\ioContextPool.h">
       <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="tkernel\kernelEngine.h">
+      <Filter>tkernel</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
