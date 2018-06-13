@@ -16,7 +16,7 @@ class ioContextPool final
 {
 public:
 	explicit ioContextPool(size_t poolSize = 0);
-	ioContextPool(ioContextPool&) = delete;
+	//ioContextPool(ioContextPool&) = delete;
 	ioContextPool(ioContextPool&&) = delete;
 	ioContextPool& operator=(ioContextPool&) = delete;
 	ioContextPool& operator=(ioContextPool&&) = delete;

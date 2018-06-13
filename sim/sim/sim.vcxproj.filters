@@ -10,12 +10,14 @@
     <Filter Include="engine">
       <UniqueIdentifier>{626976ee-75dc-4e77-bf06-ff2b80a4e4c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="customDataType">
+      <UniqueIdentifier>{47236b31-b8e5-4201-9149-9147c40afd2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config\config.cpp">
       <Filter>config</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="network\ioContextPool.cpp">
       <Filter>network</Filter>
     </ClCompile>
@@ -24,6 +26,12 @@
     </ClCompile>
     <ClCompile Include="network\ftdEngine.cpp">
       <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network\FTDCPackage.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>customDataType</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +48,15 @@
       <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="network\ftdEngine.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\sessionInfoManager.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="customDataType\customDataType.h">
+      <Filter>customDataType</Filter>
+    </ClInclude>
+    <ClInclude Include="network\FTDCPackage.h">
       <Filter>network</Filter>
     </ClInclude>
   </ItemGroup>

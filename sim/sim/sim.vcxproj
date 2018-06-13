@@ -132,14 +132,18 @@
     <ClCompile Include="config\config.cpp" />
     <ClCompile Include="engine\kernelEngine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="network\FTDCPackage.cpp" />
     <ClCompile Include="network\ftdEngine.cpp" />
     <ClCompile Include="network\ioContextPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h" />
+    <ClInclude Include="customDataType\customDataType.h" />
     <ClInclude Include="engine\kernelEngine.h" />
+    <ClInclude Include="network\FTDCPackage.h" />
     <ClInclude Include="network\ftdEngine.h" />
     <ClInclude Include="network\ioContextPool.h" />
+    <ClInclude Include="network\sessionInfoManager.h" />
     <ClInclude Include="network\threadBasePool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
