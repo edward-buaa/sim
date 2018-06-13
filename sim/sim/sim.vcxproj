@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="config\config.h" />
     <ClInclude Include="engine\kernelEngine.h" />
+    <ClInclude Include="engine\threadBasePool.h" />
     <ClInclude Include="network\ioContextPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
