@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <thread>
+#include <mutex>
 #include <boost/asio.hpp>
 
 class ioContextPool final
@@ -23,10 +24,8 @@ public:
 
 	void start();
 	void stop();
-
-private:
 	void run();
-	void wait();
+	boost::asio::io_context& getIoContext();
 
 private:
 	using io_contxt_ptr = std::shared_ptr<boost::asio::io_context>;

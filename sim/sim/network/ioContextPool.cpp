@@ -42,28 +42,33 @@ void ioContextPool::run()
 
 void ioContextPool::stop()
 {
-	/*
-	if (works_.empty()) { return; }
+	if (works_.empty())
+		return;
+
+	std::lock_guard<std::mutex> lk(mutex_);
+	for (size_t i = 0; i < works_.size(); ++i)
 	{
-		boost::mutex::scoped_lock l(mutex_);
-
-		for (std::size_t i = 0; i < works_.size(); ++i)
-		{
-			works_[i].reset();
-		}
-		works_.clear();
-
-		// 20140805 析构 works的时候，会自动处理io_srv的
-		for (std::size_t i = 0; i < io_srvs_.size(); ++i)
-		{
-			io_srvs_[i]->stop();
-		}
-		//io_srvs_.clear();
+		works_[i].reset();
 	}
-	*/
+	works_.clear();
+
+	//析构works的时候，会自动处理io_srv
+	for (size_t k = 0; k < io_srvs_.size(); ++k)
+	{
+		io_srvs_[k]->stop();
+	}
+	io_srvs_.clear();
 }
 
-void ioContextPool::wait()
+boost::asio::io_context& ioContextPool::getIoContext()
 {
+	boost::asio::io_context& io = *io_srvs_[next_idx_];
+	std::lock_guard<std::mutex> lk(mutex_);
+	++next_idx_;
+	if (next_idx_ == io_srvs_.size())
+	{
+		next_idx_ = 0;
+	}
 
+	return io;
 }
