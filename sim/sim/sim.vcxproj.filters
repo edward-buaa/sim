@@ -13,6 +13,9 @@
     <Filter Include="customDataType">
       <UniqueIdentifier>{47236b31-b8e5-4201-9149-9147c40afd2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{132f1486-e498-4de1-bc19-40407a159488}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config\config.cpp">
@@ -30,9 +33,7 @@
     <ClCompile Include="network\FTDCPackage.cpp">
       <Filter>network</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>customDataType</Filter>
-    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h">
@@ -58,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="network\FTDCPackage.h">
       <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\str_for_multi_index.h">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
