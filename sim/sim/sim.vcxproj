@@ -146,6 +146,7 @@
     <ClInclude Include="network\sessionInfoManager.h" />
     <ClInclude Include="network\threadBasePool.h" />
     <ClInclude Include="utility\str_for_multi_index.h" />
+    <ClInclude Include="utility\type_dec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

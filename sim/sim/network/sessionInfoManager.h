@@ -12,6 +12,7 @@
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/composite_key.hpp>
 #include "../customDataType/customDataType.h"
+#include "../utility/str_for_multi_index.h"
 
 const int MAX_COMM_FLUX = 50;
 using namespace boost::multi_index;
@@ -63,6 +64,13 @@ public:
 		>
 	> sessioninfo_list_type;
 };
+
+public:
+	bool IsSessionLogin()
+	{
+		TSessionInfo *pFind = GetSessionInfo(sid);
+		return 
+	}
 
 
 #endif

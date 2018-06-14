@@ -63,5 +63,8 @@
     <ClInclude Include="utility\str_for_multi_index.h">
       <Filter>utility</Filter>
     </ClInclude>
+    <ClInclude Include="utility\type_dec.h">
+      <Filter>utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
