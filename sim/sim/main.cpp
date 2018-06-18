@@ -1,11 +1,13 @@
 
 #include <iostream>
-#include "network/ioContextPool.h"
+#include <memory>
 #include "engine/kernelEngine.h"
 
 int main()
 {
-	ioContextPool engine_pool(1);
+	std::unique_ptr<CKernelEngine> kernelEngine(new CKernelEngine());
+	if (!kernelEngine->loadConfig())	//¼ÓÔØÅäÖÃÎÄ¼ş
+		return -1;
 
 	return 0;
 }

@@ -19,6 +19,14 @@ CKernelEngine::~CKernelEngine()
 //装载配置文件
 bool CKernelEngine::loadConfig()
 {
+	//装载ini文件
+	if (!loadIniFile())
+		return false;
+
+	//装载xml文件
+	if (!loadXMLFile())
+		return false;
+
 	return true;
 }
 

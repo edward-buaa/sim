@@ -132,6 +132,8 @@
     <ClCompile Include="config\config.cpp" />
     <ClCompile Include="engine\kernelEngine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="memdb\memoryDB.cpp" />
+    <ClCompile Include="memdb\Tables.cpp" />
     <ClCompile Include="network\FTDCPackage.cpp" />
     <ClCompile Include="network\ftdEngine.cpp" />
     <ClCompile Include="network\ioContextPool.cpp" />
@@ -140,6 +142,12 @@
     <ClInclude Include="config\config.h" />
     <ClInclude Include="customDataType\customDataType.h" />
     <ClInclude Include="engine\kernelEngine.h" />
+    <ClInclude Include="memdb\mem_mi_table.h" />
+    <ClInclude Include="memdb\OutputTable.h" />
+    <ClInclude Include="memdb\memoryDB.h" />
+    <ClInclude Include="memdb\Tables.h" />
+    <ClInclude Include="memdb\table_base.h" />
+    <ClInclude Include="memdb\transaction.h" />
     <ClInclude Include="network\FTDCPackage.h" />
     <ClInclude Include="network\ftdEngine.h" />
     <ClInclude Include="network\ioContextPool.h" />

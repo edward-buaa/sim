@@ -63,14 +63,69 @@ public:
 			>
 		>
 	> sessioninfo_list_type;
-};
 
 public:
-	bool IsSessionLogin()
+	bool IsSessionLogin(DWORD sid)
 	{
 		TSessionInfo *pFind = GetSessionInfo(sid);
-		return 
+		if (pFind == nullptr)
+			return false;
+
+		return pFind->bIsLogin;
 	}
+
+	void SetSessionInfo(TSessionInfo& info)
+	{
+		SessionInfo_List_.insert(info);
+		TSessionInfo* p = GetSessionInfo(info.SessionID);
+	}
+
+	TSessionInfo* GetSessionInfo(DWORD sessionID)
+	{
+		sessioninfo_list_type::iterator it = SessionInfo_List_.find(sessionID);
+		return (it != SessionInfo_List_.end()) ? const_cast<TSessionInfo*>(&(*it)) : 0;
+	}
+
+	void ClearSessionInfo(DWORD SessionID)
+	{
+		SessionInfo_List_.erase(SessionID);
+	}
+
+	sessioninfo_list_type& GetSessionInfoTable()
+	{
+		return SessionInfo_List_;
+	}
+
+	CSessionIDType GetSessionID(const CUserIDType UserID)
+	{
+		typedef sessioninfo_list_type::nth_index<1>::type IndexType;
+		IndexType& index = SessionInfo_List_.get<1>();
+		IndexType::iterator it = index.find(boost::make_tuple(UserID));
+		if (it != index.end())
+		{
+			return it->SessionID;
+		}
+		else
+		{
+			printf("warning: no find session infos with userid=[%s]\n", UserID);
+			for (it = index.begin(); it != index.end(); ++it)
+			{
+				printf("session paras:sessid=[%d] userid=[%s]\n", it->SessionID, it->userID);
+				if (strcmp(it->userID, UserID) == 0)
+				{
+					return it->SessionID;
+				}
+			}
+		}
+
+		return 0;
+	}
+
+private:
+	//记录用户级别的session的信息
+	sessioninfo_list_type SessionInfo_List_;
+};
+
 
 
 #endif
