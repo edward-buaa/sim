@@ -43,6 +43,9 @@
     <ClCompile Include="memdb\Tables.cpp">
       <Filter>memdb</Filter>
     </ClCompile>
+    <ClCompile Include="memdb\RecordStruct.cpp">
+      <Filter>memdb</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h">
@@ -92,6 +95,15 @@
     </ClInclude>
     <ClInclude Include="memdb\transaction.h">
       <Filter>memdb</Filter>
+    </ClInclude>
+    <ClInclude Include="memdb\RecordStruct.h">
+      <Filter>memdb</Filter>
+    </ClInclude>
+    <ClInclude Include="network\field_describe.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\Endian.h">
+      <Filter>network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
