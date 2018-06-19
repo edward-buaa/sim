@@ -1,6 +1,8 @@
 #ifndef __RECORD_STRUCT_H__
 #define __RECORD_STRUCT_H__
 
+#include "../network/field_describe.h"
+#include "../customDataType/customDataType.h"
 
 /////////////////////////////////////////////////////////////////////////
 ///CWriteableCurrentTime是一个存储[当前时间]的对象，可以写出。

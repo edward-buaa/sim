@@ -7,6 +7,7 @@
 
 #include "OutputTable.h"
 #include "mem_mi_table.h"
+#include "RecordStruct.h"
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -21,8 +22,8 @@
 //		在retrieve时，也可以指定事务，此时将取出经过update的新数据
 /////////////////////////////////////////////////////////////////////////
 class CCurrentTimeFactory
-//	: public COutputTable,
-//	  public CMemMITable<CCurrentTime, Idx_Cont_CurrentTime>
+	: public COutputTable,
+	  public CMemMITable<CCurrentTime, Idx_Cont_CurrentTime>
 {
 public:
 	explicit CCurrentTimeFactory(const std::string& TableName);
