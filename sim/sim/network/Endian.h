@@ -10,7 +10,7 @@
 	基本上以char*的方式，不会单独出现send(int a)这样的方式，保存char*的小端排序可以节约部分处理时间
 */
 
-namespace endian{
+namespace endian {
 
 	// 大端字节序
 	static inline bool IsBigEndian()
@@ -93,6 +93,15 @@ namespace endian{
 		return pVal;
 	}
 
+	template<class T>
+	inline T ChangeEndian(T val)
+	{
+#ifdef _BIG_ENDIAN_
+		return detail_::ChangeEndian_impl(val, boost::is_pointer<T>());
+#else
+		return val;
+#endif
+	}
 
 }	//end of namespace endian
 

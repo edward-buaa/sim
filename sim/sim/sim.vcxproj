@@ -29,7 +29,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -158,6 +158,7 @@
     <ClInclude Include="network\ioContextPool.h" />
     <ClInclude Include="network\sessionInfoManager.h" />
     <ClInclude Include="network\threadBasePool.h" />
+    <ClInclude Include="utility\compare.h" />
     <ClInclude Include="utility\str_for_multi_index.h" />
     <ClInclude Include="utility\type_dec.h" />
   </ItemGroup>
