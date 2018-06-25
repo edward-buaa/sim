@@ -56,6 +56,20 @@ public:
 	CTimeType OldTime;
 	//原来时间（毫秒）
 	CMillisecType OldMillisec;
+
+	TYPE_DESCRIPTOR((
+		TYPE_DESC(CurrDate)
+		,
+		TYPE_DESC(CurrTime)
+		,
+		TYPE_DESC(CurrMillisec)
+		,
+		TYPE_DESC(ActionDay)
+		,
+		TYPE_DESC(OldTime)
+		,
+		TYPE_DESC(OldMillisec)
+		));
 };
 
 
