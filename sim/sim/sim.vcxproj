@@ -146,6 +146,7 @@
     <ClInclude Include="memdb\mem_mi_table.h" />
     <ClInclude Include="memdb\OutputTable.h" />
     <ClInclude Include="memdb\memoryDB.h" />
+    <ClInclude Include="memdb\RecordIndexCont.h" />
     <ClInclude Include="memdb\RecordStruct.h" />
     <ClInclude Include="memdb\Tables.h" />
     <ClInclude Include="memdb\table_base.h" />

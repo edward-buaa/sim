@@ -7,7 +7,7 @@
 
 #include "OutputTable.h"
 #include "mem_mi_table.h"
-#include "RecordStruct.h"
+#include "RecordIndexCont.h"
 
 
 /////////////////////////////////////////////////////////////////////////

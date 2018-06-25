@@ -105,5 +105,8 @@
     <ClInclude Include="network\Endian.h">
       <Filter>network</Filter>
     </ClInclude>
+    <ClInclude Include="memdb\RecordIndexCont.h">
+      <Filter>memdb</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
