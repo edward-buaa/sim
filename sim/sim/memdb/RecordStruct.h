@@ -57,6 +57,8 @@ public:
 	//原来时间（毫秒）
 	CMillisecType OldMillisec;
 
+	static FieldDescribe field_desc_;
+
 	TYPE_DESCRIPTOR((
 		TYPE_DESC(CurrDate)
 		,
@@ -72,5 +74,7 @@ public:
 	));
 };
 
+//typedef  CCurrentTime CWriteableCurrentTime;
+//const int REC_ID_CurrentTime = 0x11;
 
 #endif

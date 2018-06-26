@@ -143,7 +143,7 @@ void CProcessCSVRecordFile::writeCSVRow(FILE *fpCSV, void *pStruct, FieldDescrib
 	fprintf(fpCSV, "\n");
 }
 
-std::vector<int> CProcessCSVRecordFile::readCSVHead(FILE *input, FieldDescribe *desc)
+std::vector<int> CProcessCSVRecordFile::readCSVHead(FILE *input, FieldDescribe* desc)
 {
 	char buffer[4096];
 	char* token;

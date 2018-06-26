@@ -253,8 +253,7 @@ private:
 };
 
 
-#define TYPE_DESCRIPTOR(members) void DescribeMembers() { members; } \
-									static FieldDescribe field_desc_
+#define TYPE_DESCRIPTOR(members) void DescribeMembers() { members; }
 
 #define TYPE_DESC(member) field_desc_.SetupMember( \
 			member,(char *)&member-(char *)this,#member,sizeof(member))

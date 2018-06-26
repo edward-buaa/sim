@@ -24,7 +24,7 @@ private:
 	bool loadIniFile();		//装载ini配置文件
 	bool loadXMLFile();		//装载xml配置文件
 	//检查配置是否存在
-	std::string checkConfigExist(std::unique_ptr<solo::config::CConfig>& pCfg);
+	std::string checkConfigExist(std::unique_ptr<config::CConfig>& pCfg);
 
 private:
 	ioContextPool engine_pool_;

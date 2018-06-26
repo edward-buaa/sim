@@ -34,10 +34,10 @@ bool CKernelEngine::loadConfig()
 bool CKernelEngine::loadIniFile()
 {
 	//--------------装载ini文件--------------------
-	std::unique_ptr<solo::config::CConfig> pCfg;
+	std::unique_ptr<config::CConfig> pCfg;
 	try
 	{
-		pCfg = std::make_unique<solo::config::CConfig>(INI_FILE_NAME);
+		pCfg = std::make_unique<config::CConfig>(INI_FILE_NAME);
 		pCfg->loadConfig();
 		std::string msg = checkConfigExist(pCfg);
 		if (!msg.empty())
@@ -59,10 +59,10 @@ bool CKernelEngine::loadIniFile()
 bool CKernelEngine::loadXMLFile()
 {
 	//--------------------装载xml文件------------------
-	std::unique_ptr<solo::config::CConfig> pXML;
+	std::unique_ptr<config::CConfig> pXML;
 	try
 	{
-		pXML = std::make_unique<solo::config::CConfig>(XML_FILE_NAME);
+		pXML = std::make_unique<config::CConfig>(XML_FILE_NAME);
 		pXML->loadConfig();
 	}
 	catch (const std::exception& e)
@@ -75,7 +75,7 @@ bool CKernelEngine::loadXMLFile()
 }
 
 //检查配置是否存在
-std::string CKernelEngine::checkConfigExist(std::unique_ptr<solo::config::CConfig>& pCfg)
+std::string CKernelEngine::checkConfigExist(std::unique_ptr<config::CConfig>& pCfg)
 {
 	std::vector<std::string> vec;
 	vec = boost::assign::list_of<std::string>

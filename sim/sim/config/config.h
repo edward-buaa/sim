@@ -13,7 +13,7 @@
 #include <string>
 #include <boost/property_tree/ptree.hpp>
 
-namespace solo { namespace config {
+namespace config {
 
 class CConfig
 {
@@ -85,6 +85,6 @@ private:
 	boost::property_tree::iptree m_ptree;	//使用 iptree，忽略大小写
 };
 
-} }
+}
 
 #endif

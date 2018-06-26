@@ -7,19 +7,19 @@
 #include <boost/regex.h>
 //#include <boost/optional.hpp>
 
-solo::config::CConfig::CConfig(const std::string fileName)
+config::CConfig::CConfig(const std::string fileName)
 	: m_fileName{fileName}
 {
 
 }
 
-solo::config::CConfig::~CConfig()
+config::CConfig::~CConfig()
 {
 
 }
 
 ///∂¡»°≈‰÷√Œƒº˛
-void solo::config::CConfig::loadConfig()
+void config::CConfig::loadConfig()
 {
 	using boost::property_tree::ini_parser::ini_parser_error;
 	using boost::property_tree::xml_parser::xml_parser_error;

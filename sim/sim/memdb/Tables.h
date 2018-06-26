@@ -8,6 +8,7 @@
 #include "OutputTable.h"
 #include "mem_mi_table.h"
 #include "RecordIndexCont.h"
+#include "../config/config.h"
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -34,6 +35,7 @@ public:
 
 	//--------------导入导出数据------------
 	int writeCSV(const char* filename);
+	//int writeCSV()
 };
 
 #endif
