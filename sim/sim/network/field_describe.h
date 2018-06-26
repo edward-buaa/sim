@@ -145,6 +145,14 @@ public:
 		return m_szFieldName.c_str();
 	}
 
+	/**获取域的注释
+	* @return 域的注释
+	*/
+	inline const char *GetComment()
+	{
+		return m_szComment.c_str();
+	}
+
 	template<class DataType>
 	void SetupMember(DataType &, int offset, const char* name, int length)
 	{
