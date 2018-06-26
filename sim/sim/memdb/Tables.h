@@ -27,6 +27,13 @@ class CCurrentTimeFactory
 {
 public:
 	explicit CCurrentTimeFactory(const std::string& TableName);
+	~CCurrentTimeFactory();
+
+	typedef Idx_Cont_CurrentTime Data_Container_Type;
+	typedef Idx_Cont_CurrentTime Index_Container_Type;
+
+	//--------------导入导出数据------------
+	int writeCSV(const char* filename);
 };
 
 #endif

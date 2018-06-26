@@ -133,6 +133,7 @@
     <ClCompile Include="engine\kernelEngine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="memdb\memoryDB.cpp" />
+    <ClCompile Include="memdb\ProcessCSVTable.cpp" />
     <ClCompile Include="memdb\RecordStruct.cpp" />
     <ClCompile Include="memdb\Tables.cpp" />
     <ClCompile Include="network\FTDCPackage.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="memdb\mem_mi_table.h" />
     <ClInclude Include="memdb\OutputTable.h" />
     <ClInclude Include="memdb\memoryDB.h" />
+    <ClInclude Include="memdb\ProcessCSVTable.h" />
     <ClInclude Include="memdb\RecordIndexCont.h" />
     <ClInclude Include="memdb\RecordStruct.h" />
     <ClInclude Include="memdb\Tables.h" />
@@ -159,6 +161,7 @@
     <ClInclude Include="network\sessionInfoManager.h" />
     <ClInclude Include="network\threadBasePool.h" />
     <ClInclude Include="utility\compare.h" />
+    <ClInclude Include="utility\mpath.h" />
     <ClInclude Include="utility\str_for_multi_index.h" />
     <ClInclude Include="utility\type_dec.h" />
   </ItemGroup>

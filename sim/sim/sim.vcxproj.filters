@@ -46,6 +46,9 @@
     <ClCompile Include="memdb\RecordStruct.cpp">
       <Filter>memdb</Filter>
     </ClCompile>
+    <ClCompile Include="memdb\ProcessCSVTable.cpp">
+      <Filter>memdb</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config\config.h">
@@ -110,6 +113,12 @@
     </ClInclude>
     <ClInclude Include="utility\compare.h">
       <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\mpath.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="memdb\ProcessCSVTable.h">
+      <Filter>memdb</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
