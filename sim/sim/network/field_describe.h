@@ -50,7 +50,7 @@ struct TMemberDesc
 
 template<class Type>
 struct CParamType {
-	static const MemberType TypeID = solo::FT_STRING;
+	static const MemberType TypeID = FT_STRING;
 };
 template<>
 struct CParamType<char> {
@@ -146,7 +146,7 @@ public:
 	}
 
 	template<class DataType>
-	void SetupMember(DataType &, int offset, char *name, int length)
+	void SetupMember(DataType &, int offset, const char* name, int length)
 	{
 		typedef CParamType<DataType> type;
 		SetupMember_(type::TypeID, offset, name, length);
@@ -184,7 +184,7 @@ public:
 	* @param pStream 要转换的字节流
 	* @remark 字节流中的成员变量必须是高位在前
 	*/
-	void StreamToStruct(char *pStruct, const char *pStream, int nLength)
+	void StreamToStruct(char *pStruct, const char* pStream, int nLength)
 	{
 		for (int i = 0; i<GetMemberCount(); i++) {
 			TMemberDesc *p = &m_MemberDesc[i];
@@ -213,6 +213,26 @@ public:
 #endif
 			}
 		}
+	}
+
+private:
+	/**填充类型和类型 ID 对照表
+	* @param nType 成员类型
+	* @param nStructOffset 成员在类中的偏移量
+	* @param nSize 成员长度
+	* @param szName 成员名称
+	*/
+	inline void SetupMember_(MemberType nType, int nStructOffset, const char* szName, int nSize)
+	{
+		TMemberDesc mem;
+		TMemberDesc *p = &mem;
+		p->nType = nType;
+		p->nStructOffset = nStructOffset;
+		p->nStreamOffset = m_nStreamSize;
+		p->nSize = nSize;
+		p->szName = szName;
+		m_nStreamSize += nSize;
+		m_MemberDesc.push_back(mem);
 	}
 
 private:

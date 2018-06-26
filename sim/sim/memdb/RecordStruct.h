@@ -69,7 +69,7 @@ public:
 		TYPE_DESC(OldTime)
 		,
 		TYPE_DESC(OldMillisec)
-		));
+	));
 };
 
 
