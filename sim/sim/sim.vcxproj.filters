@@ -120,5 +120,8 @@
     <ClInclude Include="memdb\ProcessCSVTable.h">
       <Filter>memdb</Filter>
     </ClInclude>
+    <ClInclude Include="utility\str_for_mi.h">
+      <Filter>utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

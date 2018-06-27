@@ -12,6 +12,7 @@ public:
 	virtual void undo() = 0;
 };
 
+//xww  这个类有什么用？？？
 class CTransaction
 {
 public:

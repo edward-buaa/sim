@@ -3,6 +3,13 @@
 
 #include "transaction.h"
 
+/*
+默认认为表的行为是：
+	1 有变化，就立即生效
+	2 如果错误，可以rollback
+	3 在变动的同时就进行表的索引的调整；
+*/
+
 template<class Tbl, class Rec>
 class CInsertCommand : public ITranCommand
 {
@@ -15,7 +22,9 @@ public:
 
 	virtual void undo()
 	{
-		m_pTable->direct_remove(m_pRec);
+		//xww modify 先注释掉，sim并没有回滚的功能
+		//就算是CInsertCommand 是 CTableBase 的友元也不能访问私有的direct_remove
+		//m_pTable->direct_remove(m_pRec);
 	}
 
 private:
@@ -24,7 +33,7 @@ private:
 };
 
 template<class Tbl, class Rec>
-class CRemoveCommand :public ITranCommand
+class CRemoveCommand : public ITranCommand
 {
 public:
 	explicit CRemoveCommand(Tbl* pTbale, const Rec* pRec)
@@ -35,7 +44,9 @@ public:
 
 	virtual void undo()
 	{
-		m_pTable->direct_insert(m_pRec);
+		//xww modify 先注释掉，sim并没有回滚的功能
+		//就算是CRemoveCommand 是 CTableBase 的友元也不能访问私有的direct_insert
+		//m_pTable->direct_insert(m_pRec);
 	}
 private:
 	Tbl* m_pTable;
@@ -43,7 +54,7 @@ private:
 };
 
 template<class Tbl, class Rec>
-class CUpateCommand :public ITranCommand
+class CUpateCommand : public ITranCommand
 {
 public:
 	explicit CUpateCommand(Tbl* pTable, const Rec* const pRecOld, const Rec* const pRecNew)
@@ -54,7 +65,9 @@ public:
 
 	virtual void undo()
 	{
-		m_pTable->direct_update(m_pRecNew, m_pRecOld);
+		//xww modify 先注释掉，sim并没有回滚的功能
+		//就算是CUpateCommand 是 CTableBase 的友元也不能访问私有的direct_update
+		//m_pTable->direct_update(m_pRecNew, m_pRecOld);
 	}
 private:
 	Tbl* m_pTable;
@@ -65,11 +78,6 @@ private:
 template<class Rec>
 class CTableBase
 {
-public:
-	template<class, class> friend class CInsertCommand;
-	template<class, class> friend class CUpdateCommand;
-	template<class, class> friend class CRemoveCommand;
-
 public:
 	CTableBase() {}
 	virtual ~CTableBase(){}
@@ -122,7 +130,8 @@ public:
 private:
 	virtual Rec* direct_insert(const Rec* r) = 0;
 	virtual bool direct_remove(const Rec* r) = 0;
-	// 定义为virtual， 一些特殊的表，可以改写direct_update的逻辑
+
+	// 定义为virtual， 一些特殊的表可改写逻辑
 	virtual Rec* direct_update(const Rec* pOld, const Rec* pNew)
 	{
 		Rec* p = nullptr;
