@@ -7,6 +7,7 @@
 
 #include "OutputTable.h"
 #include "mem_mi_table.h"
+#include "RecordStruct.h"
 #include "RecordIndexCont.h"
 #include "../config/config.h"
 
@@ -35,7 +36,25 @@ public:
 
 	//--------------导入导出数据------------
 	int writeCSV(const char* filename);
-	//int writeCSV()
+	int writeCSV(config::CConfig *pConfig);
+	int readCSV(const char *filename);
+	int readCSV(config::CConfig *pConfig);
+
+	//讲内容写到文件中，用于debug
+	virtual void dump(FILE* fp);
+
+	//讲内容写到文件中，用于debug
+	virtual void dump(char* filename);
+
+	std::size_t getCount(void)
+	{
+		return count();
+	}
+
+	Idx_Cont_CurrentTime &getContainer()
+	{
+		return get_cont();
+	}
 };
 
 #endif

@@ -14,6 +14,7 @@
 #include <map>
 #include "Endian.h"
 
+
 //数据类型标识符
 enum MemberType {
 	FT_CHAR,
@@ -39,8 +40,9 @@ enum MemberType {
 };
 
 //类成员属性结构
-struct TMemberDesc 
+class TMemberDesc 
 {
+public:
 	MemberType nType;			/**<成员类型*/
 	int nStructOffset;			/**<成员在类中的偏移量*/
 	int nStreamOffset;			/**<成员在字节流中的偏移量*/
@@ -81,7 +83,9 @@ struct CParamType<long long> {
 class FieldDescribe
 {
 public:
-	typedef void(*describeFunc)(); /**< 定义一个指针函数类型 */
+	typedef void(*describeFunc)(); /* 定义一个指针函数类型 */
+
+	FieldDescribe() {}
 
 	/**构造函数，并执行传进的指针函数
 	* @param FieldID 域ID
@@ -253,7 +257,8 @@ private:
 };
 
 
-#define TYPE_DESCRIPTOR(members) void DescribeMembers() { members; }
+#define TYPE_DESCRIPTOR(members) void DescribeMembers() { members; } \
+			static FieldDescribe field_desc_;
 
 #define TYPE_DESC(member) field_desc_.SetupMember( \
 			member,(char *)&member-(char *)this,#member,sizeof(member))

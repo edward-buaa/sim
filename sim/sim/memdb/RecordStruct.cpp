@@ -6,6 +6,10 @@
 #include <boost/lexical_cast.hpp>
 #include "../utility/compare.h"
 
+//-------------------------------------------------------------
+/* 应用业务FieldID 静态成员的初始化 */
+REGISTER_FIELD(REC_ID_CurrentTime, CWriteableCurrentTime, "");
+//--------------------------------------------------------------
 
 //初始化操作，将所有的字段清空
 void CCurrentTime::init()

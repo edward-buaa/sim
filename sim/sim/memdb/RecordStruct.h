@@ -5,9 +5,7 @@
 #include "../customDataType/customDataType.h"
 
 /////////////////////////////////////////////////////////////////////////
-///CWriteableCurrentTime是一个存储[当前时间]的对象，可以写出。
-///@author	RE
-///@version	1.0
+//CWriteableCurrentTime是一个存储[当前时间]的对象，可以写出。
 /////////////////////////////////////////////////////////////////////////
 class CCurrentTime
 {
@@ -57,8 +55,6 @@ public:
 	//原来时间（毫秒）
 	CMillisecType OldMillisec;
 
-	static FieldDescribe field_desc_;
-
 	TYPE_DESCRIPTOR((
 		TYPE_DESC(CurrDate)
 		,
@@ -74,7 +70,7 @@ public:
 	));
 };
 
-//typedef  CCurrentTime CWriteableCurrentTime;
-//const int REC_ID_CurrentTime = 0x11;
+typedef  CCurrentTime CWriteableCurrentTime;
+const int REC_ID_CurrentTime = 0x11;
 
 #endif
