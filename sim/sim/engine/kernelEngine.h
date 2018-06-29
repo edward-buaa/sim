@@ -18,9 +18,11 @@ public:
 	CKernelEngine& operator=(CKernelEngine&&) = delete;
 	~CKernelEngine();
 
-	bool loadConfig();	//装载配置文件
+	bool initEngine();		//初始化引擎
+	
 
 private:
+	bool loadConfig();		//装载配置文件
 	bool loadIniFile();		//装载ini配置文件
 	bool loadXMLFile();		//装载xml配置文件
 	//检查配置是否存在

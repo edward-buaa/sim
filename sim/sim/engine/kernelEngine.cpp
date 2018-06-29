@@ -8,7 +8,7 @@ const char* XML_FILE_NAME = "matchkernel.xml";
 CKernelEngine::CKernelEngine(size_t poolSize)
 	:CFTDEngine{ poolSize }
 {
-
+	
 }
 
 CKernelEngine::~CKernelEngine()
@@ -16,12 +16,23 @@ CKernelEngine::~CKernelEngine()
 
 }
 
+//初始化引擎
+bool CKernelEngine::initEngine()
+{
+
+	//加载配置文件
+	if (!loadConfig())
+		return false;
+	
+	return true;
+}
+
 //装载配置文件
 bool CKernelEngine::loadConfig()
 {
 	//装载ini文件
 	if (!loadIniFile())
-		return false;
+		return false;	
 
 	//装载xml文件
 	if (!loadXMLFile())
@@ -42,13 +53,13 @@ bool CKernelEngine::loadIniFile()
 		std::string msg = checkConfigExist(pCfg);
 		if (!msg.empty())
 		{
-			std::cerr << "配置项错误：" << msg << std::endl;
+			std::cerr << "ini 配置项错误：" << msg << std::endl;
 			return false;
 		}
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "加载 ini 失败：" <<e.what() << std::endl;
 		return false;
 	}
 
@@ -67,7 +78,7 @@ bool CKernelEngine::loadXMLFile()
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "加载 xml 失败：" <<e.what() << std::endl;
 		return false;
 	}
 

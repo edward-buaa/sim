@@ -19,6 +19,30 @@
     <Filter Include="memdb">
       <UniqueIdentifier>{a70b009d-9092-442e-8381-bcbc1d397748}</UniqueIdentifier>
     </Filter>
+    <Filter Include="spdlog">
+      <UniqueIdentifier>{8b2aab19-c78e-428c-9e04-21074663d969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\contrib">
+      <UniqueIdentifier>{a8219a02-ba57-447a-ae92-fabe1a849951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\contrib\sinks">
+      <UniqueIdentifier>{f6e78f9f-1907-4613-87da-d225259bf466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\details">
+      <UniqueIdentifier>{b778810a-5a71-476f-94de-932c63d7f96c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\fmt">
+      <UniqueIdentifier>{2f0b94f4-79b4-41dd-90cd-5fbab4641b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\fmt\bundled">
+      <UniqueIdentifier>{e4a6a2be-223b-426c-a261-0ffa197609cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\sinks">
+      <UniqueIdentifier>{69820c5c-5c79-4c95-997b-60ed81a3f3d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{86fb974b-7c02-4f6c-ad9c-3e6fff0d2656}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config\config.cpp">
@@ -48,6 +72,12 @@
     </ClCompile>
     <ClCompile Include="memdb\ProcessCSVTable.cpp">
       <Filter>memdb</Filter>
+    </ClCompile>
+    <ClCompile Include="config\configManager.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="log\logger.cpp">
+      <Filter>log</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +152,12 @@
     </ClInclude>
     <ClInclude Include="utility\str_for_mi.h">
       <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="config\configManager.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="log\logger.h">
+      <Filter>log</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

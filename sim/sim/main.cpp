@@ -1,13 +1,15 @@
 
-#include <iostream>
 #include <memory>
 #include "engine/kernelEngine.h"
 
 int main()
 {
 	std::unique_ptr<CKernelEngine> kernelEngine(new CKernelEngine());
-	if (!kernelEngine->loadConfig())	//¼ÓÔØÅäÖÃÎÄ¼þ
-		return -1;
+	if (!kernelEngine->initEngine())
+	{
+		int a = 0;
+	}
 
+	system("pause");
 	return 0;
 }

@@ -25,7 +25,7 @@ public:
 	CConfig& operator=(CConfig&&) = delete;
 	~CConfig();
 
-	///读取配置文件
+	//读取配置文件
 	void loadConfig();
 
 	template<class Ret>
