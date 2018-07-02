@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include "kernelEngine.h"
+#include "../log/logger.h"
 
 const char* INI_FILE_NAME = "matchkernel.ini";
 const char* XML_FILE_NAME = "matchkernel.xml";
@@ -19,6 +20,9 @@ CKernelEngine::~CKernelEngine()
 //初始化引擎
 bool CKernelEngine::initEngine()
 {
+	//安装日志系统
+	std::shared_ptr<Logger> logger(new Logger);
+	logger->setupLogSystem();
 
 	//加载配置文件
 	if (!loadConfig())

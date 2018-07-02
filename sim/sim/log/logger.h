@@ -6,21 +6,24 @@
 */
 
 #include <spdlog.h>
+#include <string>
 
-namespace polo {
 
-class logger
+class Logger
 {
 public:
-	logger();
-	~logger();
-	logger(logger&) = delete;
-	logger(logger&&) = delete;
-	logger& operator=(logger&) = delete;
-	logger& operator=(logger&&) = delete;
+	Logger();
+	~Logger();
+	Logger(Logger&) = delete;
+	Logger(Logger&&) = delete;
+	Logger& operator=(Logger&) = delete;
+	Logger& operator=(Logger&&) = delete;
+
+	//安装日志
+	void setupLogSystem(const std::string filename, const std::string modulename,
+		int loglevel, const bool haveStdout = false);
 };
 
-}	//end of namespace
 
 
 #endif
